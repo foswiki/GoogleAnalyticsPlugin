@@ -1,0 +1,5 @@
+data/System/GoogleAnalyticsPlugin.txt 0664
+lib/Foswiki/Plugins/GoogleAnalyticsPlugin.pm 0664
+pub/System/GoogleAnalyticsPlugin/Google_Analytics_Dashboard.png 0664
+pub/System/GoogleAnalyticsPlugin/Google_Analytics_Dashboard_small.jpg 0664
+

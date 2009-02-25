@@ -1,4 +1,4 @@
-package TWiki::Plugins::GoogleAnalyticsPlugin;
+package Foswiki::Plugins::GoogleAnalyticsPlugin;
 
 use strict;
 
@@ -21,15 +21,15 @@ sub initPlugin {
     my( $topic, $web, $user, $installWeb ) = @_;
 
     # check for Plugins.pm versions
-    if( $TWiki::Plugins::VERSION < 1.1 ) {
-        TWiki::Func::writeWarning( "Version mismatch between $pluginName and Plugins.pm" );
+    if( $Foswiki::Plugins::VERSION < 1.1 ) {
+        Foswiki::Func::writeWarning( "Version mismatch between $pluginName and Plugins.pm" );
         return 0;
     }
     
-    $debug = TWiki::Func::getPluginPreferencesFlag( "DEBUG" );
+    $debug = Foswiki::Func::getPluginPreferencesFlag( "DEBUG" );
     # Get plugin preferences, variables defined by:
     #   * Set GOOGLESITEKEY = ...
-	$googleSiteKey = TWiki::Func::getPluginPreferencesValue( "GOOGLESITEKEY" );
+	$googleSiteKey = Foswiki::Func::getPluginPreferencesValue( "GOOGLESITEKEY" );
 
 	_addToHead();
     return 1;
@@ -50,7 +50,7 @@ sendStats();
 // ]]>
 </script>
 ';
-	TWiki::Func::addToHEAD('GOOGLEANALYTICSPLUGIN',$header)
+	Foswiki::Func::addToHEAD('GOOGLEANALYTICSPLUGIN',$header)
 }
 
 1;

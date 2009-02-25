@@ -33,7 +33,7 @@ __Note:__ You do not need to install anything on the browser to use this plugin.
 	* Download the ZIP file from the Plugin web (see below)
 	* Unzip ==%TOPIC%.zip== in your root ($TWIKI_ROOT) directory. Content:
    | *File:* | *Description:* |
-   | ==data/TWiki/GoogleAnalyticsPlugin.txt== |  |
+   | ==data/System/GoogleAnalyticsPlugin.txt== |  |
    | ==lib/Foswiki/Plugins/GoogleAnalyticsPlugin/build.pl== |  |
 
 	* Optionally, if it exists, run ==%TOPIC%_installer== to automatically check and install other TWiki modules that this module depends on. You can also do this step manually.
