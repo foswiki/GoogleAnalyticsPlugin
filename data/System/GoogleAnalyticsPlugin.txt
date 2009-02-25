@@ -28,7 +28,7 @@ Google presents visitor data in a visually rich dashboard: %BR%
 
 ---++ Plugin Installation Instructions
 
-__Note:__ You do not need to install anything on the browser to use this plugin. The following instructions are for the administrator who installs the plugin on the TWiki server. 
+__Note:__ You do not need to install anything on the browser to use this plugin. The following instructions are for the administrator who installs the plugin on the Foswiki server. 
 
 	* Download the ZIP file from the Plugin web (see below)
 	* Unzip ==%TOPIC%.zip== in your root ($TWIKI_ROOT) directory. Content:
@@ -36,27 +36,26 @@ __Note:__ You do not need to install anything on the browser to use this plugin.
    | ==data/System/GoogleAnalyticsPlugin.txt== |  |
    | ==lib/Foswiki/Plugins/GoogleAnalyticsPlugin/build.pl== |  |
 
-	* Optionally, if it exists, run ==%TOPIC%_installer== to automatically check and install other TWiki modules that this module depends on. You can also do this step manually.
+	* Optionally, if it exists, run ==%TOPIC%_installer== to automatically check and install other Foswiki modules that this module depends on. You can also do this step manually.
 	* Alternatively, manually make sure the dependencies listed in the table below are resolved.
    None
-	* (Dakar) Visit =configure= in your TWiki installation, and enable the plugin in the {Plugins} section.
+	* (Dakar) Visit =configure= in your Foswiki installation, and enable the plugin in the {Plugins} section.
 	
 ---++ Plugin Info
 
-|  Authors: | TWiki:Main.ArthurClemens |
+|  Authors: | Foswiki:Main.ArthurClemens |
 |  Copyright &copy;: | 2006 Arthur Clemens |
 |  License: | [[http://www.gnu.org/copyleft/gpl.html][GPL]] |
-|  Plugin Version: | %DATE% (V1.000) |
+|  Plugin Version: | %DATE% (V1.001) |
 |  Change History: | <!-- versions below in reverse order -->&nbsp; |
+|  24 Feb 2009 | 1.001 Ported to Foswiki (Foswiki:Main.WillNorris) |
 |  21 Sep 2006 | 1.0.0 First Version |
-|  TWiki Dependency: | $TWiki::Plugins::VERSION 1.1 |
+|  Foswiki Dependency: | $Foswiki::Plugins::VERSION 2.0 |
 |  CPAN Dependencies: | none |
 |  Other Dependencies: | none |
 |  Perl Version: | 5.005 |
-|  [[Foswiki:Extensions/Benchmark][Benchmarks]]: | %SYSTEMWEB%.GoodStyle nn%, %SYSTEMWEB%.FormattedSearch nn%, %TOPIC% nn% |
 |  Home: | http://foswiki.org/Extensions/%TOPIC% |
 |  Feedback: | http://foswiki.org/Extensions/%TOPIC%Dev |
-|  Appraisal: | http://foswiki.org/Extensions/%TOPIC%Appraisal |
 
 __Related Topics:__ %SYSTEMWEB%.DefaultPreferences, %USERSWEB%.SitePreferences
 

@@ -16,16 +16,11 @@ $RELEASE = 'Dakar';
 
 $pluginName = 'GoogleAnalyticsPlugin';
 
-#there is no need to document this.
+################################################################################
+
 sub initPlugin {
     my( $topic, $web, $user, $installWeb ) = @_;
 
-    # check for Plugins.pm versions
-    if( $Foswiki::Plugins::VERSION < 1.1 ) {
-        Foswiki::Func::writeWarning( "Version mismatch between $pluginName and Plugins.pm" );
-        return 0;
-    }
-    
     $debug = Foswiki::Func::getPluginPreferencesFlag( "DEBUG" );
     # Get plugin preferences, variables defined by:
     #   * Set GOOGLESITEKEY = ...
@@ -34,6 +29,8 @@ sub initPlugin {
 	_addToHead();
     return 1;
 }
+
+################################################################################
 
 sub _addToHead {
 
@@ -53,4 +50,5 @@ sendStats();
 	Foswiki::Func::addToHEAD('GOOGLEANALYTICSPLUGIN',$header)
 }
 
+################################################################################
 1;
