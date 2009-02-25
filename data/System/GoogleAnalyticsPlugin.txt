@@ -31,7 +31,7 @@ Google presents visitor data in a visually rich dashboard: %BR%
 __Note:__ You do not need to install anything on the browser to use this plugin. The following instructions are for the administrator who installs the plugin on the Foswiki server. 
 
 	* Download the ZIP file from the Plugin web (see below)
-	* Unzip ==%TOPIC%.zip== in your root ($TWIKI_ROOT) directory. Content:
+	* Unzip ==%TOPIC%.zip== in your root ($FOSWIKI_ROOT) directory. Content:
    | *File:* | *Description:* |
    | ==data/System/GoogleAnalyticsPlugin.txt== |  |
    | ==lib/Foswiki/Plugins/GoogleAnalyticsPlugin/build.pl== |  |
