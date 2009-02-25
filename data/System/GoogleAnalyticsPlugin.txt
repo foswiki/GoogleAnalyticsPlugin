@@ -34,7 +34,6 @@ __Note:__ You do not need to install anything on the browser to use this plugin.
 	* Unzip ==%TOPIC%.zip== in your root ($FOSWIKI_ROOT) directory. Content:
    | *File:* | *Description:* |
    | ==data/System/GoogleAnalyticsPlugin.txt== |  |
-   | ==lib/Foswiki/Plugins/GoogleAnalyticsPlugin/build.pl== |  |
 
 	* Optionally, if it exists, run ==%TOPIC%_installer== to automatically check and install other Foswiki modules that this module depends on. You can also do this step manually.
 	* Alternatively, manually make sure the dependencies listed in the table below are resolved.
@@ -44,10 +43,11 @@ __Note:__ You do not need to install anything on the browser to use this plugin.
 ---++ Plugin Info
 
 |  Authors: | Foswiki:Main.ArthurClemens |
-|  Copyright &copy;: | 2006 Arthur Clemens |
+|  Copyright &copy;: | 2006 Arthur Clemens, 2009 Will Norris |
 |  License: | [[http://www.gnu.org/copyleft/gpl.html][GPL]] |
-|  Plugin Version: | %DATE% (V1.001) |
+|  Plugin Version: | %DATE% (V2.0.0) |
 |  Change History: | <!-- versions below in reverse order -->&nbsp; |
+|  25 Feb 2009 | 2.0.0 Ported to ga.js (Foswiki:Main.WillNorris) |
 |  24 Feb 2009 | 1.001 Ported to Foswiki (Foswiki:Main.WillNorris) |
 |  21 Sep 2006 | 1.0.0 First Version |
 |  Foswiki Dependency: | $Foswiki::Plugins::VERSION 2.0 |

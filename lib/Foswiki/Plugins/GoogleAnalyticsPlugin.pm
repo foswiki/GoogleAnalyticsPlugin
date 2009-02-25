@@ -33,21 +33,21 @@ sub initPlugin {
 ################################################################################
 
 sub _addToHead {
-
     my $header = '<!-- Google Analytics script -->
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
 <script type="text/javascript">
 // <![CDATA[
-function sendStats(inPageId) {
-	var pageId = (inPageId != undefined) ? inPageId : "";
-	urchinTracker(pageId);
-}
-_uacct = "'.$googleSiteKey.'";
-sendStats();
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+    var pageTracker = _gat._getTracker("'.$googleSiteKey.'");
+    pageTracker._trackPageview();
+} catch(err) {}
 // ]]>
 </script>
 ';
-	Foswiki::Func::addToHEAD('GOOGLEANALYTICSPLUGIN',$header)
+    Foswiki::Func::addToHEAD('GOOGLEANALYTICSPLUGIN',$header)
 }
 
 ################################################################################
