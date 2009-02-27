@@ -21,7 +21,7 @@ Google presents visitor data in a visually rich dashboard: %BR%
 ---++ Settings
 
    * Google provides its users with a piece of html to copy-paste into pages. You only need one piece of it, the value of =_uacct=:
-   * Set this value in [[%SYSTEMWEB%.SitePreferences]]
+   * Set this value in [[%MAINWEB%.SitePreferences]]
    * Set GOOGLESITEKEY = 
 
    * Add to your SKIN or COVER setting
