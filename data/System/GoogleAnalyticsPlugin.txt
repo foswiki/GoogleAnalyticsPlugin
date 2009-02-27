@@ -25,9 +25,10 @@ Google presents visitor data in a visually rich dashboard: %BR%
    * Set GOOGLESITEKEY = 
 
    * Add to your SKIN or COVER setting
-      * Set SKIN = googleanalytics,pattern
       * Set SKIN = googleanalytics,widgets
       * Set SKIN = googleanalytics,nat
+      * Set SKIN = googleanalytics,pattern
+      * Set COVER = googleanalytics
 
    * One line description, is shown in the %SYSTEMWEB%.TextFormattingRules topic:
       * Set SHORTDESCRIPTION = Adds Google Analytics !JavaScript code to all pages
@@ -48,8 +49,9 @@ __Note:__ You do not need to install anything on the browser to use this plugin.
 |  Authors: | Foswiki:Main.ArthurClemens |
 |  Copyright &copy;: | 2006 Arthur Clemens, 2009 Will Norris |
 |  License: | [[http://www.gnu.org/copyleft/gpl.html][GPL]] |
-|  Plugin Version: | %DATE% (V2.0.0) |
+|  Plugin Version: | %DATE% (V2.0.1) |
 |  Change History: | <!-- versions below in reverse order -->&nbsp; |
+|  26 Feb 2009 | 2.0.1 converted to skin template, increased apparent page rendering speed (Foswiki:Main.WillNorris) |
 |  25 Feb 2009 | 2.0.0 Ported to ga.js (Foswiki:Main.WillNorris) |
 |  24 Feb 2009 | 1.001 Ported to Foswiki (Foswiki:Main.WillNorris) |
 |  21 Sep 2006 | 1.0.0 First Version |
