@@ -14,6 +14,8 @@ $VERSION = '$Rev$';
 # of the version number in PLUGINDESCRIPTIONS.
 $RELEASE = 'Dakar';
 
+our $NO_PREFS_IN_TOPIC = 1;
+
 $pluginName = 'GoogleAnalyticsPlugin';
 
 ################################################################################
@@ -21,34 +23,8 @@ $pluginName = 'GoogleAnalyticsPlugin';
 sub initPlugin {
     my( $topic, $web, $user, $installWeb ) = @_;
 
-    $debug = Foswiki::Func::getPluginPreferencesFlag( "DEBUG" );
-    # Get plugin preferences, variables defined by:
-    #   * Set GOOGLESITEKEY = ...
-	$googleSiteKey = Foswiki::Func::getPluginPreferencesValue( "GOOGLESITEKEY" );
-
-	_addToHead();
     return 1;
 }
-
-################################################################################
-
-sub _addToHead {
-    my $header = q|<!-- Google Analytics script -->
-<script type="text/javascript">
-// <![CDATA[
-	    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-	    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-	    try {
-		var pageTracker = _gat._getTracker("|.$googleSiteKey.q|");
-		pageTracker._trackPageview();
-	    } catch(err) {}
-// ]]>
-    </script>|;
-
-  Foswiki::Func::addToHEAD('GOOGLEANALYTICSPLUGIN',$header)
-  }
 
 ################################################################################
 1;

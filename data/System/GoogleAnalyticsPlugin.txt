@@ -21,7 +21,13 @@ Google presents visitor data in a visually rich dashboard: %BR%
 ---++ Settings
 
    * Google provides its users with a piece of html to copy-paste into pages. You only need one piece of it, the value of =_uacct=:
+   * Set this value in [[%SYSTEMWEB%.SitePreferences]]
    * Set GOOGLESITEKEY = 
+
+   * Add to your SKIN or COVER setting
+      * Set SKIN = googleanalytics,pattern
+      * Set SKIN = googleanalytics,widgets
+      * Set SKIN = googleanalytics,nat
 
    * One line description, is shown in the %SYSTEMWEB%.TextFormattingRules topic:
       * Set SHORTDESCRIPTION = Adds Google Analytics !JavaScript code to all pages
@@ -31,14 +37,11 @@ Google presents visitor data in a visually rich dashboard: %BR%
 __Note:__ You do not need to install anything on the browser to use this plugin. The following instructions are for the administrator who installs the plugin on the Foswiki server. 
 
 	* Download the ZIP file from the Plugin web (see below)
-	* Unzip ==%TOPIC%.zip== in your root ($FOSWIKI_ROOT) directory. Content:
-   | *File:* | *Description:* |
-   | ==data/System/GoogleAnalyticsPlugin.txt== |  |
-
+	* Unzip ==%TOPIC%.zip== in your root ($FOSWIKI_ROOT) directory.
 	* Optionally, if it exists, run ==%TOPIC%_installer== to automatically check and install other Foswiki modules that this module depends on. You can also do this step manually.
 	* Alternatively, manually make sure the dependencies listed in the table below are resolved.
    None
-	* (Dakar) Visit =configure= in your Foswiki installation, and enable the plugin in the {Plugins} section.
+	* Visit =configure= in your Foswiki installation, and enable the plugin in the {Plugins} section.
 	
 ---++ Plugin Info
 
