@@ -49,7 +49,8 @@ __Note:__ You do not need to install anything on the browser to use this plugin.
 |  Authors: | Foswiki:Main.ArthurClemens |
 |  Copyright &copy;: | 2006 Arthur Clemens, 2009 Will Norris |
 |  License: | [[http://www.gnu.org/copyleft/gpl.html][GPL]] |
-|  Plugin Version: | %DATE% (V2.0.1) |
+|  Version: | %$VERSION% |
+|  Release: | %$RELEASE% |
 |  Change History: | <!-- versions below in reverse order -->&nbsp; |
 |  26 Feb 2009 | 2.0.1 converted to skin template, increased apparent page rendering speed (Foswiki:Main.WillNorris) |
 |  25 Feb 2009 | 2.0.0 Ported to ga.js (Foswiki:Main.WillNorris) |
