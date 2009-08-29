@@ -1,57 +1,82 @@
-%META:TOPICINFO{author="ProjectContributor" date="1140597757" format="1.1" version="$Rev$"}%
+%META:TOPICINFO{author="ProjectContributor" comment="save topic" date="1251499074" format="1.1" reprev="1.2" version="1.2"}%
 ---+!! Google Analytics Plugin
-*Wrapper plugin for !JavaScript tags for [[http://www.google.com/analytics/][Google Analytics]].* If installed, this plugin adds Google !JavaScript code to all pages.
+
+%SHORTDESCRIPTION%.
+
+%TWISTY{
+mode="div"
+class="foswikiNotification"
+showlink="&#9658; Changes in version 2.1..."
+hidelink="&#9660; Close info"
+remember="on"
+firststart="show"
+}%
+Since version 2.1, this plugin reads settings from [[%SCRIPTURL{configure}%/#GoogleAnalyticsPlugin$Extensions][configure]]. It no longer uses a specific template or skin.
+
+You now have the control which pages to track:
+   * for specific users
+      * for instance, do not track your own visits
+   * for specific webs
+      * for instance, do not track visits to System and Trash web
+   * for bin scripts
+      * for instance, do not track =login= pages
+       
+*If you are using a version of this plugin older than 2.1:* if you don't change anything, the plugin will continue to work as it did:
+   * The previous setting =GOOGLESITEKEY= will be used as long as the new setting ={WebPropertyId}= in configure is not set
+   * The skin setting =googleanalytics= will be ignored
+%ENDTWISTY%
 
 %TOC%
 
 ---++ About Google Analytics
 [[http://www.google.com/analytics/][Google Analytics]] is a free statistics tool to track website visitors. While this service is especially meant to measure the effectiveness of !AdWords, it can be used for any site.
 
-Google blurb:
-<blockquote>
-Google Analytics offers a host of compelling features and benefits for everyone from senior executives and advertising and marketing professionals to site owners and content developers.
-
-Learn how visitors interact with your website and identify the navigational bottlenecks that keep them from completing your conversion goals. Find out how profitable your keywords are across search engines and campaigns. Pinpoint where your best customers come from and which markets are most profitable to you. Google Analytics gives you this and more through easy-to-understand visually enhanced reports.
-</blockquote>
-
 Google presents visitor data in a visually rich dashboard: %BR%
-<a href="%ATTACHURLPATH%/Google_Analytics_Dashboard.png"><img style="margin:.5em 0; padding:4px; border:1px solid #ddd;" src="%ATTACHURLPATH%/Google_Analytics_Dashboard_small.jpg" alt="Google_Analytics_Dashboard_small.jpg" width='484' height='269' /></a> %BR%
+<a href="%ATTACHURLPATH%/Google_Analytics_Dashboard.png"><img style="margin:.5em 0; padding:4px; border:1px solid #ddd;" src="%ATTACHURLPATH%/Google_Analytics_Dashboard_small.gif" alt="Screenshot of Google Analytics application" width='501' height='400' /></a> %BR%
 [[%ATTACHURLPATH%/Google_Analytics_Dashboard.png][view large image]]
 
 ---++ Settings
+After installation, configure this plugin by changing settings in [[%SCRIPTURL{configure}%/#GoogleAnalyticsPlugin$Extensions][configure]].
 
-   * Google provides its users with a piece of html to copy-paste into pages. You only need one piece of it, the value of =_uacct=:
-   * Set this value in [[%MAINWEB%.SitePreferences]]
-   * Set GOOGLESITEKEY = UA-7686196-1
+---+++ Site ID
+Google provides its users with a piece of html to copy-paste into pages. For this plugin you don't need that html, but the "Web Property ID" only. Enter this ID at ={WebPropertyId}=.
 
-   * Add to your SKIN or COVER setting
-      * Set SKIN = googleanalytics,widgets
-      * Set SKIN = googleanalytics,nat
-      * Set SKIN = googleanalytics,pattern
-      * Set COVER = googleanalytics
+---+++ Tracking per web
+Enable tracking with ={Tracking}{Enable}{Webs}=.
+   * Enter =*= to track visits to topics in all webs (default value).
+   * Enter specific web names to limit tracking to these webs only.
 
-   * One line description, is shown in the %SYSTEMWEB%.TextFormattingRules topic:
-      * Set SHORTDESCRIPTION = Adds Google Analytics !JavaScript code to all pages
+Disable tracking with ={Tracking}{Disable}{Webs}=.
+   * Enter '' (nothing) to not disable tracking in any web (default value).
+   * Enter specific web names to not track visits to these webs.
+
+---+++ Tracking per user
+Enable tracking with ={Tracking}{Enable}{Users}=.
+   * Enter =*= to track visits by all users (default value).
+   * Enter specific user (Wiki) names to limit tracking the visits by these users only.
+
+Disable tracking with ={Tracking}{Disable}{Users}=.
+   * Enter '' (nothing) to not disable tracking of any user (default value).
+   * Enter specific user names to not track visits from these users.
+   
+---+++ Tracking per script
+Enable tracking with ={Tracking}{Enable}{Scripts}=.
+   * Enter =*= to track visits to topics from all scripts (default value).
+   * Enter specific script names to limit tracking from these scripts only.
+
 
 ---++ Plugin Installation Instructions
-
-__Note:__ You do not need to install anything on the browser to use this plugin. The following instructions are for the administrator who installs the plugin on the Foswiki server. 
-
-	* Download the ZIP file from the Plugin web (see below)
-	* Unzip ==%TOPIC%.zip== in your root ($FOSWIKI_ROOT) directory.
-	* Optionally, if it exists, run ==%TOPIC%_installer== to automatically check and install other Foswiki modules that this module depends on. You can also do this step manually.
-	* Alternatively, manually make sure the dependencies listed in the table below are resolved.
-   None
-	* Visit =configure= in your Foswiki installation, and enable the plugin in the {Plugins} section.
+%INSTALL_INSTRUCTIONS%
 	
 ---++ Plugin Info
 
 |  Authors: | Foswiki:Main.ArthurClemens |
-|  Copyright &copy;: | 2006 Arthur Clemens, 2009 Will Norris |
+|  Copyright &copy;: | 2006,2009 Arthur Clemens, 2009 Will Norris |
 |  License: | [[http://www.gnu.org/copyleft/gpl.html][GPL]] |
 |  Version: | %$VERSION% |
 |  Release: | %$RELEASE% |
 |  Change History: | <!-- versions below in reverse order -->&nbsp; |
+|  27 Aug 2009 | 2.1 Arthur Clemens: Moved settings to configure. No longer uses a skin template. Tracking can be specified per web, user and script. |
 |  26 Feb 2009 | 2.0.1 converted to skin template, increased apparent page rendering speed (Foswiki:Main.WillNorris) |
 |  25 Feb 2009 | 2.0.0 Ported to ga.js (Foswiki:Main.WillNorris) |
 |  24 Feb 2009 | 1.001 Ported to Foswiki (Foswiki:Main.WillNorris) |
@@ -61,9 +86,10 @@ __Note:__ You do not need to install anything on the browser to use this plugin.
 |  Other Dependencies: | none |
 |  Perl Version: | 5.005 |
 |  Home: | http://foswiki.org/Extensions/%TOPIC% |
+|  Support: | http://foswiki.org/Support/%TOPIC% |
 |  Feedback: | http://foswiki.org/Extensions/%TOPIC%Dev |
 
 __Related Topics:__ %SYSTEMWEB%.DefaultPreferences, %USERSWEB%.SitePreferences
 
-%META:FILEATTACHMENT{name="Google_Analytics_Dashboard_small.jpg" attr="" autoattached="1" comment="" date="1158800196" path="Google_Analytics_Dashboard_small.jpg" size="46250" user="UnknownUser" version=""}%
-%META:FILEATTACHMENT{name="Google_Analytics_Dashboard.png" attr="" autoattached="1" comment="" date="1158800010" path="Google_Analytics_Dashboard.png" size="122481" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="Google_Analytics_Dashboard.png" attr="h" autoattached="1" comment="" date="1251498130" path="Google_Analytics_Dashboard.png" size="167221" user="UnknownUser" version=""}%
+%META:FILEATTACHMENT{name="Google_Analytics_Dashboard_small.gif" attr="h" autoattached="1" comment="" date="1251498252" path="Google_Analytics_Dashboard_small.gif" size="28103" user="UnknownUser" version=""}%
