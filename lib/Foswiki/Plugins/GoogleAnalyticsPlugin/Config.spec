@@ -2,7 +2,7 @@
 #---++ GoogleAnalyticsPlugin
 # **BOOLEAN**
 # Enable debugging (debug messages will be written to data/debug.txt)
-$Foswiki::cfg{Plugins}{GoogleAnalyticsPlugin}{Debug} = '0';
+$Foswiki::cfg{Plugins}{GoogleAnalyticsPlugin}{Debug} = 0;
 # **STRING 30**
 # Web Property ID, informally referred to as UA number, can be found by clicking the "check status" link in your Google Analytics account. Also referred to as "Google Site Key".
 $Foswiki::cfg{Plugins}{GoogleAnalyticsPlugin}{WebPropertyId} = '';

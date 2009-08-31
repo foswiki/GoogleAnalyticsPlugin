@@ -19,7 +19,7 @@ our $VERSION = '$Rev$';
 # date    - a date in 1 Jun 2009 format. Three letter English month names only.
 # Note: it's important that this string is exactly the same in the extension
 # topic - if you use %$RELEASE% with BuildContrib this is done automatically.
-our $RELEASE = '2.1';
+our $RELEASE = '2.1.1';
 
 # Short description of this plugin
 # One line description, is shown in the %SYSTEMWEB%.TextFormattingRules topic:
@@ -149,6 +149,9 @@ sub _htmlTag {
 		_debug("\t key=$key") if $key;
 	}
 	$key ||= '{WebPropertyId} or GOOGLESITEKEY not found';
+	$key =~ s/^[[:space:]]+//s;    # trim at start
+    $key =~ s/[[:space:]]+$//s;    # trim at end
+    
 	my $html = <<END;
 <!-- GOOGLEANALYTICSPLUGIN --><script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
