@@ -23,11 +23,17 @@ sub new {
     return $self;
 }
 
+sub loadExtraConfig {
+    my $this = shift;
+    $this->SUPER::loadExtraConfig();
+
+    $Foswiki::cfg{Plugins}{GoogleAnalyticsPlugin}{Enabled} = 1;
+}
+
 sub set_up {
     my $this = shift;
 
     $this->SUPER::set_up();
-    $this->{session}->enterContext('GoogleAnalyticsPluginEnabled');
     $Foswiki::cfg{Plugins}{GoogleAnalyticsPlugin}{WebPropertyId} = $WEB_ID;
   	$userWikiName = Foswiki::Func::getWikiName($this->{test_user});
 }
@@ -109,7 +115,9 @@ sub test_script_output_GOOGLESITEKEY {
 	Foswiki::Plugins::GoogleAnalyticsPlugin::initPlugin($this->{test_topic}, $this->{test_web}, $this->{test_user}, 'System');
 	$this->_setWebPref( "GOOGLESITEKEY", "MY_OLD_GOOGLESITEKEY" );
 
-	my $t = new Foswiki( $this->{test_user_login} );
+	my $query = new Unit::Request("");
+	$query->path_info("/$this->{test_web}/$this->{test_topic}");
+	my $t = new Foswiki( $this->{test_user_login}, $query );
 
 	my $html = <<HTML_END;
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -481,7 +489,7 @@ sub test_isTrackingEnabledForUser {
 
 	$Foswiki::cfg{Plugins}{GoogleAnalyticsPlugin}{Tracking}{Enable}{Users} = '';
 	$Foswiki::cfg{Plugins}{GoogleAnalyticsPlugin}{Tracking}{Disable}{Users} = '';
-	my $enabled = Foswiki::Plugins::GoogleAnalyticsPlugin::_isTrackingEnabledForUser('');
+	$enabled = Foswiki::Plugins::GoogleAnalyticsPlugin::_isTrackingEnabledForUser('');
 	$this->assert_equals( 0, $enabled );
 }
 
@@ -505,15 +513,11 @@ sub _set {
     $this->assert_not_null($pref);
     $type ||= 'Set';
 
-    my $user = $this->{session}->{user};
-    $this->assert_not_null($user);
-    my $topicObject = Foswiki::Meta->load( $this->{session}, $web, $topic );
-    my $text = $topicObject->text();
-    $text =~ s/^\s*\* $type $pref =.*$//gm;
-    $text .= "\n\t* $type $pref = $val\n";
-    $topicObject->text($text);
     try {
-        $topicObject->save();
+        my( $meta, $text ) = Foswiki::Func::readTopic( $web, $topic );
+        $text =~ s/^\s*\* $type $pref =.*$//gm;
+        $text .= "\n\t* $type $pref = $val\n";
+        Foswiki::Func::saveTopic( $web, $topic, $meta, $text, { dontlog => 1, minor => 1 } );
     }
     catch Foswiki::AccessControlException with {
         $this->assert( 0, shift->stringify() );
